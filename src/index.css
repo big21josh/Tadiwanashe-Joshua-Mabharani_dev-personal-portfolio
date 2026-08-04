@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+@theme {
+  /* ===== DARK THEME - DEFAULT ===== */
+  --color-background: #080a14;
+  /* Deep navy */
+  --color-foreground: #f8fafc;
+  /* Bright white text */
+  --color-card: #101428;
+  --color-surface: #0f1221;
+  --color-surface-strong: #151832;
+  --color-primary: #8b5cf6;
+  /* Purple */
+  --color-primary-foreground: #ffffff;
+  --color-accent: #06b6d4;
+  /* Cyan from CV badges */
+  --color-highlight: #ec4899;
+  --color-secondary: #1e1b2e;
+  --color-secondary-foreground: #c4b5fd;
+  --color-muted: #1e2238;
+  --color-muted-foreground: #94a3b8;
+  --color-border: #232742;
+  --radius: 0.75rem;
+  --hero-bg-opacity: 0.55;
+  /* INCREASED: was 0.3, now you can see the bg */
+}
+
+/* ===== LIGHT THEME OVERRIDES ===== */
+[data-theme="light"] {
+  --color-background: #f8fafc;
+  --color-foreground: #0f172a;
+  --color-card: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-strong: #f1f5f9;
+  --color-primary: #7c3aed;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #0891b2;
+  --color-highlight: #db2777;
+  --color-secondary: #e2e8f0;
+  --color-secondary-foreground: #475569;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+  --color-border: #e2e8f0;
+  --hero-bg-opacity: 0.25;
+  /* INCREASED: was 0.1 */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Inter", sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* smooth switch */
+  }
+
+  .font-serif {
+    font-family: "Playfair Display", serif;
+  }
+
+  section {
+    scroll-margin-top: 100px;
+  }
+}
+
+@layer components {
+  .glass {
+    background-color: color-mix(in srgb, var(--color-surface) 60%, transparent);
+    backdrop-filter: blur(20px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+    transition: all 0.3s ease;
+  }
+
+  .glass-strong {
+    background-color: color-mix(in srgb, var(--color-surface-strong) 80%, transparent);
+    backdrop-filter: blur(32px);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+    transition: all 0.3s ease;
+  }
+
+  .glow-border {
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 50%, transparent);
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium;
+  }
+
+  .badge-primary {
+    background: color-mix(in srgb, var(--color-primary) 15%, transparent);
+    color: var(--color-primary);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+
+  .badge-accent {
+    background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+    color: var(--color-accent);
+    border: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+  }
+}
+
+@layer utilities {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes slow-drift {
+
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+
+    25% {
+      transform: translate(20px, -30px);
+    }
+
+    50% {
+      transform: translate(-15px, -20px);
+    }
+
+    75% {
+      transform: translate(30px, 10px);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes draw-loop {
+    0% {
+      stroke-dashoffset: 100;
+    }
+
+    50% {
+      stroke-dashoffset: 0;
+    }
+
+    100% {
+      stroke-dashoffset: 100;
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out both;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+
+  .download-cv-border {
+    stroke-dashoffset: 100;
+    stroke-linecap: round;
+    /* hides the seam */
+    transform: rotate(-90deg);
+    /* start from bottom center */
+    transform-origin: 50% 50%;
+  }
+
+  .group:hover .download-cv-border {
+    animation: draw-loop 1.2s ease-in-out 2;
+    /* 2 loops, 1.2s each */
+  }
+}
