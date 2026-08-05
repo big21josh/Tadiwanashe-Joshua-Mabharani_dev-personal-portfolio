@@ -68,8 +68,8 @@ export const Experience = () => {
          </div>
 
           {/* Timeline */}
-          <div>
-
+          <div className="relative">
+         <div className="timeline-glow"/>
           </div>
       </div>
    </section>
