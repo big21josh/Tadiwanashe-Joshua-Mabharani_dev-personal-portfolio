@@ -6,7 +6,7 @@ const projects = [
       title: "Muwoni Tasks",
       description:
          "Muwoni Tasks - A simple web task app to organize your daily to-dos. My first project deployed online, my first real-world application love.",
-      image: "/projects/mate.png",
+      image: "/projects/muwoni.png",
       tags: ["Django", "Python", "HTML", "Shell"],
       link: "https://muwoni-completed-project.onrender.com/",
       github: "https://github.com/big21josh/muwoni-completed-project.git"
