@@ -5,7 +5,7 @@ const projects = [
    {
       title: "Muwoni Tasks",
       description:
-         "Muwoni Tasks - A simple web task app to organize your daily to-dos. My first project deployed online, my first real-world application love.",
+         "Muwoni Tasks - A simple web task app to organize your daily to-dos. My first project deployed online, my first real-world application.",
       image: "/projects/muwoni.png",
       tags: ["Django", "Python", "HTML", "Shell"],
       link: "https://muwoni-completed-project.onrender.com/",
@@ -14,7 +14,7 @@ const projects = [
    {
       title: "Portfolio Dashboard",
       description:
-         "A responsive dashboard UI with glassmorphism. it's this current portfolio site . Built with React + Tailwind.",
+         "A responsive dashboard UI with glassmorphism showing my skills and experience. it's this current portfolio site . Built with React + Tailwind.",
       image: "/projects/dash.png",
       tags: ["React", "Tailwind", "JavaScript",],
       link: "#",
