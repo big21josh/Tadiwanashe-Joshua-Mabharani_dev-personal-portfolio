@@ -22,7 +22,7 @@
   --color-border: #232742;
   --radius: 0.75rem;
   --hero-bg-opacity: 0.55;
-  
+
 }
 
 /* ===== LIGHT THEME OVERRIDES ===== */
@@ -42,7 +42,7 @@
   --color-muted-foreground: #64748b;
   --color-border: #e2e8f0;
   --hero-bg-opacity: 0.25;
- 
+
 }
 
 @layer base {
@@ -69,16 +69,21 @@
 
 @layer components {
   .glass {
-    background-color: color-mix(in srgb, var(--color-surface) 35%, transparent); /* was 60% */
-    backdrop-filter: blur(24px); /* bumped blur a bit to compensate */
-    border: 1px solid color-mix(in srgb, var(--color-border) 30%, transparent); /* was 50% */
+    background-color: color-mix(in srgb, var(--color-surface) 35%, transparent);
+    /* was 60% */
+    backdrop-filter: blur(24px);
+    /* bumped blur a bit to compensate */
+    border: 1px solid color-mix(in srgb, var(--color-border) 30%, transparent);
+    /* was 50% */
     transition: all 0.3s ease;
   }
 
   .glass-strong {
-    background-color: color-mix(in srgb, var(--color-surface-strong) 55%, transparent); /* was 80% */
+    background-color: color-mix(in srgb, var(--color-surface-strong) 55%, transparent);
+    /* was 80% */
     backdrop-filter: blur(32px);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent); /* was 20% */
+    border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+    /* was 20% */
     transition: all 0.3s ease;
   }
 
@@ -187,7 +192,7 @@
       transform: translateX(-50%);
     }
   }
-  
+
 
 
   .animate-marquee {
@@ -219,6 +224,11 @@
 
   .group:hover .download-cv-border {
     animation: draw-loop 1.2s ease-in-out 2;
-   
+
+  }
+
+  .timeline-glow {
+    box-shadow: 0 0 40px color-mix(in srgb, var(--color-primary) 35%, transparent),
+      0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
   }
 }
