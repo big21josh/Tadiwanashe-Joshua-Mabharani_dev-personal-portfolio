@@ -1,26 +1,32 @@
 import { ArrowUpRight, Github } from "lucide-react";
 
-const projects = [
+const projects = [ 
    {
       title: "Muwoni Tasks",
-      description: "A simple web task app to organize your daily to-dos. My first project deployed online.",
-      image: "/projects/mate.png",
-      tags: ["Django", "Python", "JavaScript"],
+      description: // fixed spelling
+         "Muwoni Tasks - A simple web task app to organize your daily to-dos. My first project deployed online.",
+      image: "/projects/mate.png", // fixed path
+      tags: ["Django", "Python", "HTML", "Shell"],
       link: "https://muwoni-completed-project.onrender.com/",
+      github: "#"
    },
    {
       title: "Portfolio Dashboard",
-      description: "A responsive dashboard UI with glassmorphism and dark/light theme. Built with React + Tailwind.",
+      description:
+         "A responsive dashboard UI with glassmorphism. Built with React + Tailwind.",
       image: "/projects/dash.png",
-      tags: ["React", "Tailwind", "Framer Motion"],
+      tags: ["React", "Tailwind", "JavaScript",],
       link: "#",
+       github: "https://github.com/big21josh/Tadiwanashe-Joshua-Mabharani_dev-personal-portfolio.git"
    },
    {
-      title: "Task Tracker UI",
-      description: "Clean to-do interface with animations and local storage. Focus on UX and accessibility.",
+      title: "Task Tracker UI", 
+      description:
+         "Clean to-do interface with animations and local storage. Focus on UX and accessibility.",
       image: "/projects/room.jpg",
       tags: ["React", "CSS", "LocalStorage"],
       link: "#",
+      github: "#"
    },
 ];
 

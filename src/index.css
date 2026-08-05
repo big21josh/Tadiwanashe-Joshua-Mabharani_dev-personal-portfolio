@@ -22,7 +22,7 @@
   --color-border: #232742;
   --radius: 0.75rem;
   --hero-bg-opacity: 0.55;
-  /* INCREASED: was 0.3, now you can see the bg */
+  
 }
 
 /* ===== LIGHT THEME OVERRIDES ===== */
@@ -42,7 +42,7 @@
   --color-muted-foreground: #64748b;
   --color-border: #e2e8f0;
   --hero-bg-opacity: 0.25;
-  /* INCREASED: was 0.1 */
+ 
 }
 
 @layer base {
