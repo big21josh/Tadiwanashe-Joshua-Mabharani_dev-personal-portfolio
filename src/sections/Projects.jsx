@@ -1,11 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
 
-const projects = [ 
+const projects = [
    {
       title: "Muwoni Tasks",
-      description: 
+      description:
          "Muwoni Tasks - A simple web task app to organize your daily to-dos. My first project deployed online.",
-      image: "/projects/mate.png", 
+      image: "/projects/mate.png",
       tags: ["Django", "Python", "HTML", "Shell"],
       link: "https://muwoni-completed-project.onrender.com/",
       github: "https://github.com/big21josh/muwoni-completed-project.git"
@@ -17,10 +17,10 @@ const projects = [
       image: "/projects/dash.png",
       tags: ["React", "Tailwind", "JavaScript",],
       link: "#",
-       github: "https://github.com/big21josh/Tadiwanashe-Joshua-Mabharani_dev-personal-portfolio.git"
+      github: "https://github.com/big21josh/Tadiwanashe-Joshua-Mabharani_dev-personal-portfolio.git"
    },
    {
-      title: "Task Tracker UI", 
+      title: "Task Tracker UI",
       description:
          "Clean to-do interface with animations and local storage. Focus on UX and accessibility.",
       image: "/projects/room.jpg",
@@ -77,18 +77,37 @@ export const Projects = () => {
                            <a
                               href={project.link}
                               className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
-                              >
+                           >
                               <ArrowUpRight className="w-5 h-5" />
                            </a>
                            <a
                               href={project.github}
                               className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
-                              >
+                           >
                               <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" aria-hidden="true">
                                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.838 1.237 1.838 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.467-1.334-5.467-5.94 0-1.312.469-2.383 1.236-3.222-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.02 0 2.047.137 3.003.404 2.293-1.552 3.301-1.23 3.301-1.23.653 1.653.241 2.873.117 3.176.77.839 1.236 1.91 1.236 3.222 0 4.61-2.807 5.633-5.479 5.93.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.596 24 12.297c0-6.627-5.373-12-12-12" />
                               </svg>
                            </a>
                         </div>
+                     </div>
+
+                     {/* Content */}
+                     <div className="p-6 space-y-4">
+                        <div className="flex items-center justify-between">
+                           <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">
+                              {project.title}</h3>
+
+                           <ArrowUpRight
+                              className="w-5 h-5
+                             text-muted-forground group-hover:text-primary
+                             group-hover:translate-x-1
+                             group-hover:-translate-y-1 transition-all"
+                           />
+                        </div>
+                        <p>{project.description}</p>
+                        <div>{project.tags.map((tag, tagidx) => (
+                           <span>{tag}</span>
+                        ))}</div>
                      </div>
                   </div>
                ))}
