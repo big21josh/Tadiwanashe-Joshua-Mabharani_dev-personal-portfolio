@@ -48,15 +48,29 @@ export const Experience = () => {
             <span className="text-secondary-foreground text-sm
              font-medium tracking-wider uppercase animate-fade-in"
              >
-               Career Journey
+               Developing Journey
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold
-             mt-4 mb-6 animate-fade-in animation-delay-100
+            <h2 className="text-4xl md:text-5xl font-bold font-serif  mt-4 mb-6 animate-fade-in animation-delay-100
               text-secondary-foreground">
                Experience that{" "}
-             <span>speaks volumes.</span>
+             <span className="font-serif italic font-normal text-white">
+               {" "}
+               speaks volumes.
+             </span>
             </h2>
+
+            <p
+             className="text-muted-foreground
+             animate-fade-in animation-delay-200"
+            >
+              A Time for my professional growth, curious beginner to a skilled software engineer, with a strong foundation in software development, UX/UI design, and digital marketing. My journey has been marked by hands-on experience in building responsive web applications, integrating POS systems, and providing technical support for CCTV installations. 
+            </p>
          </div>
+
+          {/* Timeline */}
+          <div>
+
+          </div>
       </div>
    </section>
    );
