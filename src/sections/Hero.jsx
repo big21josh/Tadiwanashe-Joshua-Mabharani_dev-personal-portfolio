@@ -23,7 +23,7 @@ export const Hero = () => {
       {/* Bg Image + Gradient  */}
       <div className="absolute inset-0">
         <img
-          src="/projects/mate.png"
+          src="/projects/room.jpg"
           alt="Hero bg"
           className="w-full h-full object-cover opacity-[var(--hero-bg-opacity)] transition-opacity duration-300"
         />
@@ -75,15 +75,22 @@ export const Hero = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-              {/* Both use AnimatedBorderButton with glow */}
+              {/* Contact Me Button */}
               <AnimatedBorderButton
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Contact Me
+                <span className="flex items-center gap-2">
+                  Contact Me
+                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </span>
               </AnimatedBorderButton>
 
+              {/* Download CV Button */}
               <AnimatedBorderButton onClick={() => window.open('/CV.pdf', '_blank')}>
-                Download CV
+                <span className="flex items-center gap-2">
+                  <Download className="w-5 h-5 transition-transform group-hover:scale-110" />
+                  Download CV
+                </span>
               </AnimatedBorderButton>
             </div>
 
@@ -106,8 +113,12 @@ export const Hero = () => {
                 rel="noreferrer"
                 className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
               >
-                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" aria-hidden="true">
-                  <path d="M6.94 8.5A1.56 1.56 0 1 0 6.94 5.38a1.56 1.56 0 0 0 0 3.12ZM5.5 9.5h2.88V18H5.5zM10.32 9.5h2.76v1.16h.04c.38-.72 1.31-1.48 2.7-1.48 2.89 0 3.42 1.9 3.42 4.37V18h-2.88v-7.4c0-1.76-.03-4.03-2.46-4.03-2.46 0-2.84 1.92-2.84 3.9V18H10.32z" />
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-5 h-5 fill-current"
+                  aria-hidden="true"
+                >
+                  <path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V8h3zM6.5 6.75a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19V19h-3V8h3v1.18A3 3 0 0 1 15.9 8.1c2.08 0 3.1 1.37 3.1 3.97z" />
                 </svg>
               </a>
             </div>
@@ -134,7 +145,7 @@ export const Hero = () => {
               {/* Image container */}
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
-                  src="/projects/fixed 2.jpeg"
+                  src="/projects/josh.jpeg"
                   alt="Tadiwanashe Joshua Mabharani"
                   className="rounded-xl w-full object-cover"
                 />
