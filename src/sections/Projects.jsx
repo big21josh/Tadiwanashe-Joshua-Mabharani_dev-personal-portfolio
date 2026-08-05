@@ -1,10 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
+import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 
 const projects = [
    {
       title: "Muwoni Tasks",
       description:
-         "Muwoni Tasks - A simple web task app to organize your daily to-dos. My first project deployed online.",
+         "Muwoni Tasks - A simple web task app to organize your daily to-dos. My first project deployed online, my first real-world application love.",
       image: "/projects/mate.png",
       tags: ["Django", "Python", "HTML", "Shell"],
       link: "https://muwoni-completed-project.onrender.com/",
@@ -13,7 +14,7 @@ const projects = [
    {
       title: "Portfolio Dashboard",
       description:
-         "A responsive dashboard UI with glassmorphism. Built with React + Tailwind.",
+         "A responsive dashboard UI with glassmorphism. it's this current portfolio site . Built with React + Tailwind.",
       image: "/projects/dash.png",
       tags: ["React", "Tailwind", "JavaScript",],
       link: "#",
@@ -104,13 +105,31 @@ export const Projects = () => {
                              group-hover:-translate-y-1 transition-all"
                            />
                         </div>
-                        <p>{project.description}</p>
-                        <div>{project.tags.map((tag, tagidx) => (
-                           <span>{tag}</span>
-                        ))}</div>
+                        <p className="text-muted-foreground text-sm">
+                           {project.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                           {project.tags.map((tag, tagidx) => (
+                              <span
+                                 key={tagidx}
+                                 className="px-4 py-1.5 rounded-full bg-surface text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-300 ">
+                                 {tag}
+                              </span>
+                           ))}
+                        </div>
                      </div>
                   </div>
                ))}
+            </div>
+
+            {/* View All CTA */}
+            <div className="text-center mt-12 animate-fade-in animation-delay-500">
+               <AnimatedBorderButton>
+                  <span className="inline-flex items-center gap-2">
+                     View All Projects
+                     <ArrowUpRight className="w-5 h-5" />
+                  </span>
+               </AnimatedBorderButton>
             </div>
          </div>
       </section>

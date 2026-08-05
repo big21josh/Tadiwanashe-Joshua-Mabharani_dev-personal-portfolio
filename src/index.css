@@ -219,6 +219,6 @@
 
   .group:hover .download-cv-border {
     animation: draw-loop 1.2s ease-in-out 2;
-    /* 2 loops, 1.2s each */
+   
   }
 }
