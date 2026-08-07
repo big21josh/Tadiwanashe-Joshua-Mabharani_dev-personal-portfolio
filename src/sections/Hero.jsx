@@ -145,7 +145,7 @@ export const Hero = () => {
               {/* Image container */}
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
-                  src="/projects/josh.jpeg"
+                  src="/projects/profile.jpg"
                   alt="Tadiwanashe Joshua Mabharani"
                   className="rounded-xl w-full object-cover"
                 />
