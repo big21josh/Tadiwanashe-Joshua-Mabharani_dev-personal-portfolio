@@ -12,17 +12,10 @@ const experience = [
       role: "CCTV Installation Technician",
       company: "Muwoni Technologies",
       description: "Installation, configuration, and maintenance of CCTV and security systems. Computer hardware troubleshooting, networking and system diagnostics. Client training and after-installation support",
-      technologies: ["Hikvision", "Dahua", "IP Cameras", "NVR/DVR", "Network Configuration", "Computer Hardware", "Troubleshooting", "Client Training"],
+      technologies: ["Dahua", "IP Cameras", "NVR/DVR", "Network Configuration", "Computer Hardware", "Troubleshooting", "Client Training"],
       current: true,
    },
-   {
-      period: "Feb 2021 — May 2022",
-      role: "Sales Representative",
-      company: "Builderz Pride, Cameron Ext, Magaba",
-      description: "Customer service, sales consultations, and inventory management. Developed strong communication and client relationship skills",
-      technologies: ["Sales", "Inventory Management", "Client Relations", "Communication"],
-      current: false,
-   },
+  
    {
       period: "2022 – Present",
       role: "Software Provider",
@@ -31,13 +24,21 @@ const experience = [
       technologies: ["POS Systems", "Retail Tech", "Business Management Systems", "Software", "Customer Support"],
       current: true,
    },
+    {
+      period: "Feb 2021 — May 2022",
+      role: "Sales Representative",
+      company: "Builderz Pride, Cameron Ext, Magaba",
+      description: "Customer service, sales consultations, and inventory management. Developed strong communication and client relationship skills",
+      technologies: ["Sales", "Inventory Management", "Client Relations", "Communication"],
+      current: false,
+   },
 
 ]
 
 
 
 export const Experience = () => {
-   return (<section id="experience" className="py-32 relative overflow-hidden">
+   return (<section id="experience" className=" py-32 relative overflow-hidden">
       <div
          className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2"
       />
@@ -63,7 +64,12 @@ export const Experience = () => {
                className="text-muted-foreground
              animate-fade-in animation-delay-200"
             >
-               A Time for my professional growth, curious beginner to a skilled software engineer, with a strong foundation in software development, UX/UI design and digital marketing. My journey has been marked by hands-on experience in building responsive web applications, integrating POS systems, and providing technical support for CCTV installations.
+               A Timeline for my professional growth,
+                curious beginner to a skilled software engineer,
+                 with a strong foundation in software development,
+                  UX/UI design and digital marketing.
+                   My journey has been marked by hands-on experience in building responsive web applications, integrating POS systems,
+                    and providing technical support for CCTV installations.
             </p>
          </div>
 
@@ -80,7 +86,9 @@ export const Experience = () => {
                      style={{ animationDelay: `${(idx + 1) * 150}ms` }}
                   >
                      {/* Timeline Dot*/}
-                     <div className="absolute"></div>
+                     <div className="absolute left-0 md:left-1/2 top-0 w-3 h-3 bg-primary rounded-full -translate-x-1/2 ring-4 ring-background z-10">
+                     {exp.current && <span className="absolute insest-0 rounded-full bg-primary animate-ping opacity-75" />}
+                     </div>
 
                      {/* Content */}
                      <div className={`pl-8 md:pl-0 
