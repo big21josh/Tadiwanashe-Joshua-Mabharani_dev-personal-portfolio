@@ -23,14 +23,14 @@ const testimonials = [
    {
       quote: "Josh is a hardworking student who completes his assignments on time and always delivers good results.",
       author: "Vincent Mugondora",
-      role: "Software Engineering Instructor @uncommon.org",
+      role: "Software Engineering Instructor, @uncommon.org",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100"
    },
 {
     quote: "Success Is Only Determined By The Success Of The Successor. This is how my bro Josh is",
     author: "Mecer Tinashe",
       role: "Designer",
-      avatar:"#"
+      avatar:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100"
 
 }
 ];
