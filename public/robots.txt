@@ -10,7 +10,7 @@ User-agent: Bingbot
 Allow: /
 
 # Sitemap location
-Sitemap: https://TadiwanasheJoshuaMabharani.onrender.com/sitemap.xml
+Sitemap: https://tadiwanashejoshuamabharani.onrender.com/sitemap.xml
 
 # Crawl delay (optional - adjust if needed)
 Crawl-delay: 1
