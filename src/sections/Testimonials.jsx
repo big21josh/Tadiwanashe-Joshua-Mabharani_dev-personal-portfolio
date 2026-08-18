@@ -3,31 +3,31 @@ import { useState } from "react";
 
 const testimonials = [
    {
-      quote: "Josh is one of the those engineers I've worked with and will always be happy to work with him in future projects   ",
+      quote: "Joshua Mabharani is a hardworking and diligent individual who gives his best in everything he does. He has a can-do attitude and a strong desire to learn and grow. He believes that no task is beyond his reach if he does not know how to do something, he is willing to learn, adapt, and ultimately deliver results. ",
       author: "Zvikomborero Tetena",
-      role: "CTO, Tech Innovators Inc.",
+      role: "Lead Front End Developer",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100"
    },
    {
-      quote: "Working with Josh was a game-changer for our project. He delivered ah",
+      quote: "Working with Joshua was a game-changer for our project. He delivered above and beyond what we expected.",
       author: "Vincent Mugondora",
       role: "FullStack Developer, Software engineering instructor,Uncommon.org",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4f4fe?w=100&h=100"
    },
    {
-      quote: "Pedro's expertise in React and TypeScript helped us rebuild our entire",
-      author: "Emily Watson",
-      role: "Engineering Lead, StartUp Labs",
+      quote: "Joshua is a good prompt engineer, he is always willing to learn and adapt to new technologies. He is a great team player and always willing to help others.",
+      author: "Roselyn",
+      role: "digital marketing instructor, @uncommon.org",
       avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100"
    },
    {
-      quote: "Josh is a hardworking student who completes his assignments on time and always delivers good results.",
+      quote: "Joshua is a hardworking student who completes his assignments on time and always delivers good results.",
       author: "Vincent Mugondora",
       role: "Software Engineering Instructor, @uncommon.org",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100"
    },
 {
-    quote: "Success Is Only Determined By The Success Of The Successor. This is how my bro Josh is",
+    quote: "Success Is Only Determined By The Success Of The Successor. This is how my brother Joshua is",
     author: "Mecer Tinashe",
       role: "Designer",
       avatar:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100"

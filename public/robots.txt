@@ -1,0 +1,16 @@
+# Allow all bots to crawl the entire site
+User-agent: *
+Allow: /
+
+# Specific rules for search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://tadiwanashe-joshua.dev/sitemap.xml
+
+# Crawl delay (optional - adjust if needed)
+Crawl-delay: 1
