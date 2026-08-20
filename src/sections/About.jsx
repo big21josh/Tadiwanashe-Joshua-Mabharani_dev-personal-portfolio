@@ -48,10 +48,7 @@ export const About = () => {
                         I'm a Software Developer and Product Designer based in Harare with a unique blend of software engineering, UX/UI product design, digital marketing, and hands-on security systems experience. Junior Software Engineer at Uncommon.org, specializing in building user-centered web applications with React and Python. Proven ability to bridge design, code, and business growth. Also experienced CCTV Installation Technician with strong hardware troubleshooting skills. Passionate tech enthusiast eager to build impactful digital products.
                      </p>
                      <p>
-                        I'm a Software Developer and Product Designer based in Harare with a unique blend of software engineering, UX/UI product design, digital marketing, and hands-on security systems experience. Junior Software Engineer at Uncommon.org, specializing in building user-centered web applications with React and Python. Proven ability to bridge design, code, and business growth. Also experienced CCTV Installation Technician with strong hardware troubleshooting skills. Passionate tech enthusiast eager to build impactful digital products.
-                     </p>
-                     <p>
-                        . Proven ability to bridge design, code, and business growth. Also experienced CCTV Installation Technician with strong hardware troubleshooting skills. Passionate tech enthusiast eager to build impactful digital products.
+                        Proven ability to bridge design, code, and business growth. Also experienced CCTV Installation Technician with strong hardware troubleshooting skills. Passionate tech enthusiast eager to build impactful digital products.
                      </p>
                   </div>
 

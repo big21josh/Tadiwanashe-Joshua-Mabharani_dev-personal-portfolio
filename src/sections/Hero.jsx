@@ -67,11 +67,10 @@ export const Hero = () => {
             </div>
 
             <p className="text-lg text-muted-foreground max-w-lg animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              I'm a Software Developer and Product Designer based in Harare with a unique blend of software engineering,
-              UX/UI product design, digital marketing, and hands-on security systems experience. Software Engineer at
-              <span className="text-primary"> Uncommon.org</span>, specializing in building user-centered web applications with
-              <span className="text-primary"> React</span> and <span className="text-primary"> Python</span>.
-              Proven ability to bridge design, code, and business growth. Also experienced CCTV Installation Technician with strong hardware troubleshooting skills.
+              Based in Harare, I build user-centered web applications with
+              <span className="text-primary"> React</span> and <span className="text-primary"> Python</span> as a Software Engineer at
+              <span className="text-primary"> Uncommon.org</span> backed by a rare mix of design sensibility, digital marketing know-how
+              and hands-on security systems experience as a CCTV Installation Technician.
             </p>
 
             <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>

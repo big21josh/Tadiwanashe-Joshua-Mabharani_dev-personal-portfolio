@@ -97,6 +97,27 @@ export const generateProjectSchema = (project) => {
   };
 };
 
+// Generate structured data for a Coursera / course certificate
+export const generateCertificateSchema = (certificate) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "EducationalOccupationalCredential",
+    "name": certificate.title,
+    "credentialCategory": "certificate",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": certificate.issuer || "Coursera"
+    },
+    "about": certificate.org,
+    "dateCreated": certificate.date,
+    "url": certificate.credentialUrl,
+    "holder": {
+      "@type": "Person",
+      "name": "Tadiwanashe Joshua Mabharani"
+    }
+  };
+};
+
 // Add breadcrumb schema for navigation
 export const generateBreadcrumbSchema = (items) => {
   return {
@@ -239,6 +260,7 @@ export const validateSEO = () => {
 export default {
   updateMetaTags,
   generateProjectSchema,
+  generateCertificateSchema,
   generateBreadcrumbSchema,
   optimizeImage,
   generateOGTags,

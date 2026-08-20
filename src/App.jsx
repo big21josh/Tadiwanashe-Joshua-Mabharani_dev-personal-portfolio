@@ -3,6 +3,7 @@ import { About } from "@/sections/About";
 import { Projects } from "@/sections/Projects";
 import { Experience } from "@/sections/Experience";
 import { Testimonials } from "@/sections/Testimonials";
+import { Certificates } from "@/sections/Certificates";
 import { Contact } from "@/sections/Contact";
 import { Navbar } from "@/layout/Navbar"; 
 
@@ -16,6 +17,7 @@ function App() {
        <Projects />
        <Experience />
        <Testimonials />
+       <Certificates />
        <Contact />
       </main>
       <footer role="contentinfo" className="border-t border-border py-8 px-6">

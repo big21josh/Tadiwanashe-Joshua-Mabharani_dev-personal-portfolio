@@ -2,24 +2,24 @@
 
 @theme {
   /* ===== DARK THEME - DEFAULT ===== */
-  --color-background: #080a14;
-  /* Deep navy */
-  --color-foreground: #f8fafc;
-  /* Bright white text */
-  --color-card: #101428;
-  --color-surface: #0f1221;
-  --color-surface-strong: #151832;
-  --color-primary: #8b5cf6;
-  /* Purple */
+  --color-background: #070f14;
+    /* Deep ocean black */
+  --color-foreground: #f4fafc;
+    /* Bright white text */
+  --color-card: #0f1e26;
+  --color-surface: #0d1a21;
+  --color-surface-strong: #132a34;
+  --color-primary: #0ea5e9;
+    /* Sky blue */
   --color-primary-foreground: #ffffff;
-  --color-accent: #06b6d4;
-  /* Cyan from CV badges */
-  --color-highlight: #ec4899;
-  --color-secondary: #1e1b2e;
-  --color-secondary-foreground: #c4b5fd;
-  --color-muted: #1e2238;
-  --color-muted-foreground: #94a3b8;
-  --color-border: #232742;
+  --color-accent: #fb7185;
+    /* Coral */
+  --color-highlight: #7dd3fc;
+  --color-secondary: #122630;
+  --color-secondary-foreground: #bae6fd;
+  --color-muted: #132732;
+  --color-muted-foreground: #8fabb8;
+  --color-border: #1c3a47;
   --radius: 0.75rem;
   --hero-bg-opacity: 0.55;
 
@@ -27,20 +27,20 @@
 
 /* ===== LIGHT THEME OVERRIDES ===== */
 [data-theme="light"] {
-  --color-background: #f8fafc;
-  --color-foreground: #0f172a;
+  --color-background: #f5fafc;
+  --color-foreground: #0d1a21;
   --color-card: #ffffff;
   --color-surface: #ffffff;
-  --color-surface-strong: #f1f5f9;
-  --color-primary: #7c3aed;
+  --color-surface-strong: #eaf5f9;
+  --color-primary: #0284c7;
   --color-primary-foreground: #ffffff;
-  --color-accent: #0891b2;
-  --color-highlight: #db2777;
-  --color-secondary: #e2e8f0;
-  --color-secondary-foreground: #475569;
-  --color-muted: #f1f5f9;
-  --color-muted-foreground: #64748b;
-  --color-border: #e2e8f0;
+  --color-accent: #e11d48;
+  --color-highlight: #0ea5e9;
+  --color-secondary: #dbeef5;
+  --color-secondary-foreground: #0c4a6e;
+  --color-muted: #eaf5f9;
+  --color-muted-foreground: #5a7c88;
+  --color-border: #d3e8ef;
   --hero-bg-opacity: 0.25;
 
 }
