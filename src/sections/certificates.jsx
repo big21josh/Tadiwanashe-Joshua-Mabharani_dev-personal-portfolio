@@ -1,6 +1,6 @@
 import { Award, ExternalLink, Calendar } from "lucide-react";
 import { useEffect } from "react";
-import { generateCertificateSchema, injectStructuredData } from "@/lib/seo-utils";
+import { generateCertificateSchema, injectStructuredData } from "@/utils/seoUtils";
 
 // TODO: replace with your real Coursera certificates
 const certificates = [
