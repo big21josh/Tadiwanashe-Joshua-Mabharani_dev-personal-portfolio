@@ -4,6 +4,13 @@ import { generateCertificateSchema, injectStructuredData } from "@/utils/seoUtil
 
 const certificates = [
   {
+    title: "Introduction to Software Engineering",
+    issuer: "Coursera",
+    org: "IBM",
+    date: "Aug 2026",
+    credentialUrl: "https://coursera.org/verify/ZMGSA9VVO8BX",
+  },
+  {
     title: "React Basics",
     issuer: "Coursera",
     org: "Meta",
