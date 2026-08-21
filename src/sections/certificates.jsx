@@ -7,7 +7,7 @@ const certificates = [
   {
     title: "Certificate Title 1",
     issuer: "Coursera",
-    org: "Partner Organization Nam",
+    org: "Partner Organization Name",
     date: "Jan 2026",
     credentialUrl: "#",
   },
