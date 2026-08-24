@@ -85,7 +85,7 @@ export const Hero = () => {
               </AnimatedBorderButton>
 
               {/* Download CV Button */}
-              <AnimatedBorderButton onClick={() => window.open('/projects/Tadiwanashe_Joshua_Mabharani_CV.pdf', '_blank')}>
+              <AnimatedBorderButton onClick={() => window.open('/Tadiwanashe_Joshua_Mabharani_CV.pdf', '_blank')}>
                 <span className="flex items-center gap-2">
                   <Download className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                   Download CV
@@ -132,12 +132,6 @@ export const Hero = () => {
               from-primary/30 via-transparent 
               to-primary/10 blur-2xl animate-pulse"
               />
-              {/* Glow layer - only on hover now */}
-              {/* <div className="absolute inset-0 rounded-2xl 
-                shadow-[0_0_0px_0px_rgba(139,92,246,0)] 
-                group-hover:shadow-[0_0_40px_6px_rgba(139,92,246,0.9)]
-                transition-shadow duration-300" /> */}
-
               {/* Blurred bg glow for depth */}
               <div className="absolute inset-0 bg-primary/0 blur-3xl rounded-2xl group-hover:bg-primary/50 transition-all duration-300" />
 
