@@ -85,7 +85,7 @@ export const Hero = () => {
               </AnimatedBorderButton>
 
               {/* Download CV Button */}
-              <AnimatedBorderButton onClick={() => window.open('/CV.pdf', '_blank')}>
+              <AnimatedBorderButton onClick={() => window.open('/projects/Tadiwanashe_Joshua_Mabharani_CV.pdf', '_blank')}>
                 <span className="flex items-center gap-2">
                   <Download className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                   Download CV
