@@ -14,20 +14,20 @@ const projects = [
    {
       title: "Portfolio Dashboard",
       description:
-         "A responsive dashboard UI with glassmorphism showing my skills and experience. it's this current portfolio site . Built with React + Tailwind.",
+         "A responsive dashboard UI with glassmorphism showing my skills and experience. It's this current portfolio site. Built with React + Tailwind.",
       image: "/projects/dash.png",
-      tags: ["React", "Tailwind", "JavaScript",],
+      tags: ["React", "Tailwind", "JavaScript"],
       link: "#",
       github: "https://github.com/big21josh/Tadiwanashe-Joshua-Mabharani_dev-personal-portfolio.git"
    },
    {
-      title: "Task Tracker UI",
+      title: "Harare Skate Club",
       description:
-         "Clean to-do interface with animations and local storage. Focus on UX and accessibility.",
-      image: "/projects/room.jpg",
-      tags: ["React", "CSS", "LocalStorage"],
-      link: "#",
-      github: "#"
+         "Official website for Harare Skate Club. Landing page with hero, skatepark info, store, and donation links. Built for the community to support the first skatepark in Harare.",
+      image: "/projects/HarareSkateClub.png", 
+      tags: ["React", "Next.js", "Tailwind", "TypeScript"],
+      link: "https://harare-skate-club.vercel.app/",
+      github: "#" 
    },
 ];
 
