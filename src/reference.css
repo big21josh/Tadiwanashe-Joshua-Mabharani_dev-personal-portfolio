@@ -851,7 +851,7 @@ em {
 }
 .ref-service-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
 .ref-service-card {
@@ -886,6 +886,18 @@ em {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   margin-top: 20px;
+}
+.ref-platform-stack {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.ref-platform-stack .toolkit {
+  width: 100%;
+  min-width: 0;
+}
+.ref-platform-stack .toolkit > .section {
+  padding-inline: 0;
 }
 .ref-platform-copy {
   padding: 45px;
@@ -1264,7 +1276,7 @@ em {
     margin-inline: 24px;
   }
   .ref-service-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 @media (max-width: 1000px) {
@@ -1544,7 +1556,7 @@ em {
   height: 100svh;
   min-height: 460px;
   overflow: hidden;
-  background: var(--bg);
+  background: #000;
   isolation: isolate;
 }
 .ref-light-field {
@@ -1558,6 +1570,7 @@ em {
   pointer-events: none;
 }
 .ref-spiral-stage h2 {
+  color: #fff;
   position: absolute;
   inset: 0;
   display: grid;
@@ -1596,6 +1609,7 @@ em {
     visibility 0.5s;
 }
 .ref-spiral-exit > a {
+  color: #fff;
   font:
     500 clamp(44px, 7vw, 104px)/1 ReferenceDisplay,
     Arial;
@@ -1609,7 +1623,10 @@ em {
   opacity: 0;
 }
 :root[data-theme='light'] .ref-spiral-exit {
-  background: #ffffffbf;
+  background: #000b;
+}
+.ref-spiral-stage > .ref-light-field {
+  background: radial-gradient(ellipse at 20% 65%, #0099ff36, transparent 60%), #000;
 }
 .ref-spiral-controls {
   position: absolute;

@@ -15,7 +15,6 @@ import {
   Code2,
   PenTool,
   LayoutTemplate,
-  Database,
   Network,
   Gauge,
   Wrench,
@@ -28,6 +27,7 @@ import {
 } from 'lucide-react';
 import { LightField } from './ProjectSpiral';
 import { ThemeToggle } from './ThemeToggle';
+import { Toolkit } from './Toolkit';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { Button } from './Button';
 import { Github, Linkedin } from './SocialIcons';
@@ -43,7 +43,7 @@ const links = [
 export function ReferenceNav() {
   const section = useActiveSection();
   const active = {
-    work: 'project-spiral', toolkit: 'home', intro: 'home',
+    work: 'project-spiral', toolkit: 'services', intro: 'home',
     approach: 'services', faqs: 'contact', footer: 'contact',
   }[section] || section;
   const [open, setOpen] = useState(false);
@@ -311,8 +311,6 @@ export function ReferenceHero({ reduced }) {
 const services = [
   [Globe, 'Website Development'],
   [LayoutTemplate, 'Responsive Interfaces'],
-  [Code2, 'React & Next.js'],
-  [Database, 'Python & Django'],
   [PenTool, 'Product & UI Design'],
   [Network, 'IP Networking'],
   [ShieldCheck, 'CCTV Systems'],
@@ -352,18 +350,14 @@ export function ReferenceServices() {
             Design consistency.
           </h3>
           <p>
-            From React interfaces to Django applications, I bring the same care to every detail:
+            From user interfaces to application backends, I bring the same care to every detail:
             clear, responsive, and built for people.
           </p>
           <a href="#project-spiral">
             See my work</a>
         </div>
-        <div className="ref-platform-facts">
-          {['React', 'Next.js', 'TypeScript', 'Python', 'Django', 'Supabase', 'Figma', 'Git'].map(
-            (name) => (
-              <span key={name}>{name}</span>
-            ),
-          )}
+        <div className="ref-platform-stack">
+          <Toolkit />
         </div>
       </div>
     </section>

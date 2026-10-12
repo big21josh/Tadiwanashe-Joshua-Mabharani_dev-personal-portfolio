@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Toolkit } from './components/Toolkit';
 import { Certificates } from './sections/Certificates';
 import { useRevealMotion } from './hooks/useRevealMotion';
 import { CommandMenu } from './components/CommandMenu';
@@ -41,7 +40,6 @@ export default function App() {
       <ReferenceNav />
       <main id="main">
         <ReferenceHero reduced={motion.reduced} />
-        <Toolkit />
         <div id="intro" className="section ref-intro">
           <h2>
             Design that speaks.

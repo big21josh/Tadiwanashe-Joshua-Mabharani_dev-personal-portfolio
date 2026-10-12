@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import { Pause, Play } from 'lucide-react';
 import { projects } from '../data/portfolio';
 
-export function LightField({ reduced, className = '' }) {
+export function LightField({ reduced, className = '', theme: fixedTheme }) {
   const canvas = useRef(null);
   useEffect(() => {
     let stopped = false;
     let dispose;
     const colors = () =>
-      document.documentElement.dataset.theme === 'light'
+      (fixedTheme || document.documentElement.dataset.theme) === 'light'
         ? [
             [1, 1, 1],
             [0.8, 0.925, 1],
@@ -36,13 +36,15 @@ export function LightField({ reduced, className = '' }) {
       start();
     });
     const theme = new MutationObserver(start);
-    theme.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    if (!fixedTheme) {
+      theme.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    }
     return () => {
       stopped = true;
       theme.disconnect();
       dispose?.();
     };
-  }, [reduced]);
+  }, [reduced, fixedTheme]);
   return <canvas ref={canvas} className={`ref-light-field ${className}`} aria-hidden="true" />;
 }
 export function ProjectSpiral({ motion }) {
@@ -127,7 +129,7 @@ export function ProjectSpiral({ motion }) {
       data-phase="coil"
     >
       <div className="ref-spiral-stage">
-        <LightField reduced={reduced} />
+        <LightField reduced={reduced} theme="dark" />
         <h2 id="spiral-title">
           My <em>Works</em>
         </h2>
