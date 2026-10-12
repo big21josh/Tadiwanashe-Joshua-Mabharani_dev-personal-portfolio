@@ -174,24 +174,6 @@ export const projects = [
     github: null,
     live: 'https://muwonitechnologies.vercel.app/',
   },
-  {
-    id: 'todos',
-    title: 'Muwoni To-Dos',
-    subtitle: 'A dedicated Django task workspace with calendar scheduling.',
-    category: 'Full stack',
-    year: '2026',
-    kind: 'muwoni',
-    image: '/projects/muwoni-todos.jpg',
-    tags: ['Python', 'Django', 'SQLite', 'JavaScript'],
-    description: 'A dedicated Django task workspace with calendar scheduling.',
-    challenge: 'Bring task completion and calendar planning into one practical workspace.',
-    approach:
-      'Django views and SQLite manage tasks, while the existing JavaScript interface provides completion tracking and a calendar.',
-    features: ['Create and organize tasks', 'Calendar view', 'Task completion tracking'],
-    note: 'Preview captured from the existing GitHub project running locally. A live deployment is not listed.',
-    github: 'https://github.com/big21josh/muwoni-Tasks',
-    live: null,
-  },
 ];
 export const experience = [
   {
