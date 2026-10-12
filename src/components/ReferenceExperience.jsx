@@ -28,6 +28,7 @@ import {
 } from 'lucide-react';
 import { LightField } from './ProjectSpiral';
 import { ThemeToggle } from './ThemeToggle';
+import { useActiveSection } from '../hooks/useActiveSection';
 import { Button } from './Button';
 import { Github, Linkedin } from './SocialIcons';
 import { profile, projects } from '../data/portfolio';
@@ -40,6 +41,11 @@ const links = [
   ['#certificates', 'Certificates'],
 ];
 export function ReferenceNav() {
+  const section = useActiveSection();
+  const active = {
+    work: 'project-spiral', toolkit: 'home', intro: 'home',
+    approach: 'services', faqs: 'contact', footer: 'contact',
+  }[section] || section;
   const [open, setOpen] = useState(false);
   const [floating, setFloating] = useState(false);
   useEffect(() => {
@@ -69,14 +75,14 @@ export function ReferenceNav() {
       </a>
       <nav className="ref-nav-links" aria-label="Main navigation">
         {links.map(([href, label]) => (
-          <a key={href} href={href}>
+          <a key={href} href={href} aria-current={href === `#${active}` ? 'location' : undefined}>
             {label}
           </a>
         ))}
       </nav>
       <div className="ref-nav-tools">
         <ThemeToggle />
-        <a className="ref-connect" href="#contact">
+        <a className="ref-connect" href="#contact" aria-current={active === 'contact' ? 'location' : undefined}>
           Let’s Connect
         </a>
         <button
@@ -91,7 +97,7 @@ export function ReferenceNav() {
       </div>
       <nav id="ref-mobile" className="ref-mobile" aria-label="Mobile navigation" hidden={!open}>
         {[...links, ['#contact', 'Contact']].map(([href, label]) => (
-          <a key={href} href={href} onClick={() => setOpen(false)}>
+          <a key={href} href={href} onClick={() => setOpen(false)} aria-current={href === `#${active}` ? 'location' : undefined}>
             {label}
           </a>
         ))}
@@ -385,7 +391,7 @@ const approach = [
 ];
 export function ReferenceApproach() {
   return (
-    <section className="section ref-approach" aria-labelledby="approach-title">
+    <section id="approach" className="section ref-approach" aria-labelledby="approach-title">
       <h2 id="approach-title">
         My <em>Approach</em>
       </h2>
@@ -454,7 +460,7 @@ export function ReferenceFAQs() {
 }
 export function ReferenceFooter({ motion, onCommand }) {
   return (
-    <footer className="ref-footer">
+    <footer id="footer" className="ref-footer">
       <LightField reduced={motion.reduced} className="ref-footer-field" />
       <div className="section">
         <div className="ref-footer-cta">

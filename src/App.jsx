@@ -42,7 +42,7 @@ export default function App() {
       <main id="main">
         <ReferenceHero reduced={motion.reduced} />
         <Toolkit />
-        <div className="section ref-intro">
+        <div id="intro" className="section ref-intro">
           <h2>
             Design that speaks.
             <br />

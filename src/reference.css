@@ -42,17 +42,73 @@
   --surface-2: #f1f1f1;
   --text: #000;
   --muted: #5a5a5a;
-  --faint: #666;
-  --line: #0000002e;
-  --accent: #006acb;
+  --faint: #767676;
+  --line: #0000001a;
+  --accent: #0099ff;
   --header: #fffc;
+  --reference-strong: #363636;
+  --reference-border-strong: #0000002e;
+  --reference-card: #f0f0f0;
+  --reference-hairline: #00000029;
+  --reference-shadow: 0 40px 72px -28px #00000029, 0 14px 32px -18px #0000001a;
+  --reference-pop-shadow: 0 10px 24px -14px #00000029;
+  --reference-footer-veil: #f6f6f6bf;
+  --reference-glass: color-mix(in srgb, #fff 84%, transparent);
+  --reference-field: color-mix(in srgb, #fff 78%, transparent);
+  --reference-field-border: color-mix(in srgb, #000 13%, transparent);
 }
 :root[data-theme='light'] .ref-editor,
 :root[data-theme='light'] .ref-wire-window {
   border-color: #00000029;
 }
 :root[data-theme='light'] .ref-canvas {
-  background: linear-gradient(158deg, #fafafa, #f1f1f1 34%, #e6e6e6 68%, #d7d7d7);
+  background: #ffffffcc;
+}
+:root[data-theme='light'] .ref-editor {
+  background: transparent;
+  box-shadow: none;
+}
+:root[data-theme='light'] .ref-editor-header,
+:root[data-theme='light'] .ref-editor-sidebar,
+:root[data-theme='light'] .ref-inspector {
+  border-color: var(--reference-hairline);
+}
+:root[data-theme='light'] .ref-nav.is-floating {
+  background: var(--header);
+}
+:root[data-theme='light'] .ref-service-card,
+:root[data-theme='light'] .ref-approach-grid article {
+  background: var(--reference-card);
+}
+:root[data-theme='light'] .ref-segment button,
+:root[data-theme='light'] .ref-inspector-icons {
+  color: var(--faint);
+}
+:root[data-theme='light'] .ref-segment button[aria-pressed='true'] {
+  color: var(--text);
+  box-shadow: 0 1px 2px #0000001a;
+}
+:root[data-theme='light'] .ref-mobile,
+:root[data-theme='light'] .ref-canvas-toolbar {
+  box-shadow: var(--reference-pop-shadow);
+}
+:root[data-theme='light'] .ref-footer::before {
+  background: var(--reference-footer-veil);
+}
+:root[data-theme='light'] .contact-form {
+  background: var(--reference-glass);
+}
+:root[data-theme='light'] .contact-form input,
+:root[data-theme='light'] .contact-form textarea {
+  background: var(--reference-field);
+  border-color: var(--reference-field-border);
+}
+:root[data-theme='light'] .contact-form input::placeholder,
+:root[data-theme='light'] .contact-form textarea::placeholder {
+  color: var(--faint);
+}
+:root[data-theme='light'] .filters button {
+  border-color: var(--reference-border-strong);
 }
 :root[data-theme='light'] .ref-canvas-project {
   border-color: #0003;
@@ -216,9 +272,23 @@ em {
   color: var(--muted);
   transition: color 0.2s;
 }
-.ref-nav-links a:first-child,
+.ref-nav-links a[aria-current='location'],
 .ref-nav-links a:hover {
   color: var(--text);
+}
+.ref-nav-links a[aria-current='location'],
+.ref-mobile a[aria-current='location'] {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-color: var(--accent);
+}
+.ref-mobile a[aria-current='location'] {
+  background: var(--surface-2);
+  color: var(--text);
+}
+.ref-connect[aria-current='location'] {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 .ref-nav-tools {
   display: flex;
@@ -1682,7 +1752,7 @@ em {
   }
 }
 :root[data-theme='light'] .ref-blue-bars i {
-  background: linear-gradient(to top, #70ceff, transparent);
+  background: linear-gradient(to top, #0099ff, transparent);
 }
 :root[data-motion='reduced'] .ref-blue-bars i {
   animation: none;
