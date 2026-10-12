@@ -36,15 +36,46 @@
   --header: #000e;
 }
 :root[data-theme='light'] {
-  --bg: #e9e9e7;
-  --surface: #e0e0de;
-  --surface-2: #d5d5d3;
-  --text: #141414;
-  --muted: #545454;
+  /* Light palette from the supplied XML's --vv-* theme tokens. */
+  --bg: #fff;
+  --surface: #f6f6f6;
+  --surface-2: #f1f1f1;
+  --text: #000;
+  --muted: #5a5a5a;
   --faint: #666;
-  --line: #c8c8c5;
+  --line: #0000002e;
   --accent: #006acb;
-  --header: #e9e9e7ed;
+  --header: #fffc;
+}
+:root[data-theme='light'] .ref-editor,
+:root[data-theme='light'] .ref-wire-window {
+  border-color: #00000029;
+}
+:root[data-theme='light'] .ref-canvas {
+  background: linear-gradient(158deg, #fafafa, #f1f1f1 34%, #e6e6e6 68%, #d7d7d7);
+}
+:root[data-theme='light'] .ref-canvas-project {
+  border-color: #0003;
+  background: #f0f0f0;
+}
+:root[data-theme='light'] .ref-browser-chrome {
+  background: #fafafa;
+  color: #363636;
+}
+:root[data-theme='light'] .ref-browser-chrome > span {
+  background: #767676;
+}
+:root[data-theme='light'] .ref-platform-copy {
+  background-color: #f6f6f6;
+  background-image: url('/reference/aurora-light.webp');
+  color: #000;
+}
+:root[data-theme='light'] .ref-platform-copy p {
+  color: #363636;
+}
+:root[data-theme='light'] .ref-platform-copy a {
+  background: #0000000d;
+  color: #000;
 }
 html {
   scroll-padding-top: 84px;

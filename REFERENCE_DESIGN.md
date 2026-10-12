@@ -15,7 +15,7 @@ Observed: horizontal brand/navigation, theme control, pill contact CTA, compact 
 Observed source: Walsheim display, Geist body, Fraunces normal and italic accents. Local supplied font assets are used. Hero clamp 48px–92px with tight -0.06em tracking and line height 1. Section headings 38px–64px. Small screens reduce hero sizing to prevent overflow.
 
 ## 5. Color System
-Observed: black background, white foreground, muted gray text, hairline borders, blue glow. Implemented: #000 background, #fff text, #9c9c9c muted, #242424 borders, #168cff accent. Light theme uses #e9e9e7 rather than glaring white and dark foreground. The editor canvas and glow remain blue.
+Observed: black background, white foreground, muted gray text, hairline borders, blue glow. Implemented dark theme: #000 background, #fff text, #9c9c9c muted, #242424 borders, #168cff accent. Light theme now copies the XML's --vv-bg #fff, --vv-surface #f6f6f6, --vv-surface-2 #f1f1f1, --vv-text-primary #000 and --vv-text-muted #5a5a5a. Secondary text uses #666 for stronger contrast than the reference's subtle gray. Measured contrast on the darkest plain light surface is 6.11:1 for muted text and 5.08:1 for secondary text. Editor borders/chrome, preview canvas and platform imagery have light-specific colors; all layout, content, motion and dark-theme rules remain unchanged by this correction. Final browser screenshot verification of this color correction was unavailable because the preview tab inspection was rejected by browser URL policy.
 
 ## 6. Spacing and Layout Rhythm
 Observed: hero padding clamp 120px–168px, 60px CTA/editor gap, section padding roughly 80px–136px. Implemented equivalent hero rhythm and responsive 70px–120px sections, 12px skill gaps and 24px gallery gaps.
