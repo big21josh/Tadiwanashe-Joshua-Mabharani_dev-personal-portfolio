@@ -682,8 +682,17 @@ em {
   border: 0;
 }
 .toolkit-text-only .toolkit-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-weight: 400;
   font-size: 18px;
+}
+.toolkit-text-only .toolkit-name svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  fill: currentColor;
 }
 .toolkit-text-only .toolkit-window {
   mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);

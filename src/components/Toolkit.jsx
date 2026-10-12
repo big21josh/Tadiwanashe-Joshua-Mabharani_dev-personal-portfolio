@@ -1,31 +1,4 @@
-const tools = [
-  'React',
-  'Next.js',
-  'TypeScript',
-  'JavaScript',
-  'Python',
-  'Django',
-  'HTML',
-  'CSS',
-  'Tailwind CSS',
-  'Bootstrap',
-  'Node.js',
-  'Express',
-  'SQLite',
-  'PostgreSQL',
-  'Supabase',
-  'MongoDB',
-  'Git',
-  'GitHub',
-  'Vite',
-  'Three.js',
-  'Framer Motion',
-  'Lucide',
-  'Figma',
-  'Vercel',
-  'Render',
-  'FFmpeg',
-];
+import { techStack } from '../data/techStack';
 export function Toolkit() {
   return (
     <section id="toolkit" className="toolkit toolkit-text-only" aria-label="Technologies I use">
@@ -34,7 +7,7 @@ export function Toolkit() {
           className="toolkit-window"
           tabIndex={0}
           role="region"
-          aria-label="Scrolling technology names; hover or focus to pause"
+          aria-label="Technologies used in my projects; hover or focus to pause"
         >
           <div className="toolkit-track">
             {[false, true].map((duplicate) => (
@@ -43,8 +16,11 @@ export function Toolkit() {
                 key={String(duplicate)}
                 aria-hidden={duplicate || undefined}
               >
-                {tools.map((name) => (
+                {techStack.map(({ name, icon }) => (
                   <span key={name} className="toolkit-name">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d={icon.path} />
+                    </svg>
                     {name}
                   </span>
                 ))}
