@@ -1,147 +1,123 @@
-import { Mail, Phone, MapPin, Send } from 'lucide-react'
-
-const contactInfo = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "Big21josh@gmail.com",
-    href: "mailto:Big21josh@gmail.com",
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+263 (779) 525-96",
-    href: "tel:+26377952596",
-  },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: "Harare , Zimbabwe",
-    href: "https://maps.google.com/?q=Harare,Zimbabwe",
-  },
-];
-
-export const Contact = () => {
+import { Github, Linkedin } from '../components/SocialIcons';
+import { useState } from 'react';
+import { Copy, Check, Mail, ArrowRight } from 'lucide-react';
+import { Button } from '../components/Button';
+import { profile, createEmailHref } from '../data/portfolio';
+export function Contact() {
+  const [message, setMessage] = useState('');
+  const [copied, setCopied] = useState(false);
+  async function copyEmail() {
+    try {
+      await navigator.clipboard.writeText(profile.email);
+      setCopied(true);
+      setMessage('Email address copied.');
+    } catch {
+      setMessage(`Copy the address manually: ${profile.email}`);
+    }
+  }
+  function submit(event) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const name = form.elements.namedItem('name');
+    const body = form.elements.namedItem('message');
+    name.setCustomValidity(name.value.trim() ? '' : 'Please enter your name.');
+    body.setCustomValidity(
+      body.value.trim().length >= 10 ? '' : 'Please describe your idea in at least 10 characters.',
+    );
+    if (!form.reportValidity()) return;
+    const data = new FormData(event.currentTarget);
+    window.location.href = createEmailHref(Object.fromEntries(data));
+    setMessage(
+      'Your email app has been requested. Send the message there, or use the email address shown here.',
+    );
+  }
   return (
-    <section id="contact" className="py-32 relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2
-       w-[800px] h-[800px] bg-primary/5
-       rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"
-      />
-      <div className="container mx-auto px-6 relative z-10">
-
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
-            Get In Touch
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold font-serif mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
-            Let's build something{" "}
-            <span className="font-serif italic font-normal text-white">
-              great together.
-            </span>
+    <section id="contact" className="section contact-section" aria-labelledby="contact-title">
+      <div className="eyebrow">THE NEXT GOOD THING STARTS HERE</div>
+      <div className="contact-grid">
+        <div className="contact-copy">
+          <h2 id="contact-title">
+            Have something
+            <br />
+            in mind?
+            <br />
+            <span>Let’s build it.</span>
           </h2>
-          <p className="text-muted-foreground animate-fade-in animation-delay-200">
-            Have a project in mind or just want to say hi? My inbox is always open.
+          <p>
+            A project, an opportunity, or just a good conversation.
+            <br />
+            I’d love to hear what you’re thinking.
           </p>
-        </div>
-
-        <div className="max-w-5xl mx-auto grid md:grid-cols-5 gap-8">
-
-          {/* Left - Contact Info Cards */}
-          <div className="md:col-span-2 space-y-4">
-            {contactInfo.map((item, idx) => (
-              <a
-                key={idx}
-                href={item.href}
-                target={item.href.startsWith("http") ? "_blank" : undefined}
-                rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                className="glass flex items-center gap-4 p-5 rounded-2xl animate-fade-in hover:bg-primary/10 hover:text-primary transition-all group"
-                style={{ animationDelay: `${(idx + 1) * 100}ms` }}
-              >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-all">
-                  <item.icon className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="text-xs text-muted-foreground uppercase tracking-wider">
-                    {item.label}
-                  </div>
-                  <div className="font-medium">{item.value}</div>
-                </div>
-              </a>
-            ))}
+          <div className="email-row">
+            <a href={`mailto:${profile.email}`}>{profile.email}</a>
+            <button className="icon-button" aria-label="Copy email address" onClick={copyEmail}>
+              {copied ? <Check size={17} /> : <Copy size={17} />}
+            </button>
           </div>
-
-          {/* Right - Message Form */}
-          <div className="md:col-span-3 glass p-8 rounded-3xl glow-border animate-fade-in animation-delay-300">
-            <form
-              className="space-y-5"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const form = e.target;
-                const name = form.name.value;
-                const email = form.email.value;
-                const message = form.message.value;
-                window.location.href = `mailto:${contactInfo[0].value}?subject=${encodeURIComponent(
-                  `Portfolio inquiry from ${name}`
-                )}&body=${encodeURIComponent(`${message}\n\nFrom: ${name} (${email})`)}`;
-                form.reset();
-              }}
-            >
-              <div className="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label htmlFor="name" className="block text-sm text-muted-foreground mb-2">
-                    Your Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    placeholder="Jane Doe"
-                    className="w-full px-4 py-3 rounded-xl bg-muted/40 border border-border focus:border-primary focus:outline-none transition-colors"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm text-muted-foreground mb-2">
-                    Your Email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="jane@example.com"
-                    className="w-full px-4 py-3 rounded-xl bg-muted/40 border border-border focus:border-primary focus:outline-none transition-colors"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm text-muted-foreground mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={5}
-                  placeholder="Tell me about your project..."
-                  className="w-full px-4 py-3 rounded-xl bg-muted/40 border border-border focus:border-primary focus:outline-none transition-colors resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
-              >
-                Send Message
-                <Send className="w-4 h-4" />
-              </button>
-            </form>
+          <div className="social-links">
+            <a href={profile.github} target="_blank" rel="noreferrer">
+              <Github size={17} /> GitHub
+            </a>
+            <a href={profile.linkedin} target="_blank" rel="noreferrer">
+              <Linkedin size={17} /> LinkedIn
+            </a>
           </div>
         </div>
+        <form
+          className="contact-form"
+          onSubmit={submit}
+          onInput={(event) => event.target.setCustomValidity?.('')}
+        >
+          <div className="form-intro">
+            <Mail size={18} />
+            <span>LET’S TALK ABOUT YOUR IDEA</span>
+          </div>
+          <label htmlFor="contact-name">
+            Your name
+            <input
+              id="contact-name"
+              name="name"
+              required
+              maxLength={100}
+              autoComplete="name"
+              placeholder="What should I call you?"
+            />
+          </label>
+          <label htmlFor="contact-email">
+            Email address
+            <input
+              id="contact-email"
+              name="email"
+              type="email"
+              required
+              maxLength={254}
+              autoComplete="email"
+              placeholder="you@example.com"
+            />
+          </label>
+          <label htmlFor="contact-message">
+            What are you thinking?
+            <textarea
+              id="contact-message"
+              name="message"
+              required
+              minLength={10}
+              maxLength={4000}
+              rows={4}
+              placeholder="A little about your project or opportunity…"
+            />
+          </label>
+          <Button type="submit">
+            Open email draft <ArrowRight size={17} />
+          </Button>
+          <p className="form-note">
+            Opens your email app with a prepared draft. Your message is sent when you send it there.
+          </p>
+          <p className="form-status" role="status">
+            {message}
+          </p>
+        </form>
       </div>
     </section>
   );
-};
+}

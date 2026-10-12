@@ -1,25 +1,25 @@
-import { useEffect, useState } from "react";
-import { Sun, Moon } from "lucide-react";
-
-export const ThemeToggle = () => {
-  const [theme, setTheme] = useState("dark");
-
-  useEffect(() => {
-    const saved = localStorage.getItem("theme") || "dark";
-    setTheme(saved);
-    document.documentElement.setAttribute("data-theme", saved);
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-  };
-
+import { useState } from 'react';
+import { Sun, Moon } from 'lucide-react';
+// Adapted from the GitHub ThemeToggle, with safe storage fallback.
+export function ThemeToggle() {
+  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || 'dark');
+  function toggleTheme() {
+    const next = theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    setTheme(next);
+    try {
+      localStorage.setItem('portfolio-theme', next);
+    } catch {
+      /* In-memory fallback. */
+    }
+  }
   return (
-    <button onClick={toggleTheme} className="p-2 rounded-full glass hover:border-primary/50">
-      {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+    <button
+      className="icon-button"
+      onClick={toggleTheme}
+      aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+    >
+      {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
     </button>
   );
-};
+}

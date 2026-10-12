@@ -1,0 +1,85 @@
+{
+  "checkedAt": "11 October 2026",
+  "repos": [
+    {
+      "description": null,
+      "name": "oak_foudation",
+      "language": "TypeScript",
+      "updatedAt": "2026-09-30T13:23:25Z",
+      "homepage": "https://oak-convening-2026.vercel.app",
+      "url": "https://github.com/big21josh/oak_foudation"
+    },
+    {
+      "description": null,
+      "name": "Tadiwanashe-Joshua-Mabharani_dev-personal-portfolio",
+      "language": "JavaScript",
+      "updatedAt": "2026-09-02T09:51:30Z",
+      "homepage": null,
+      "url": "https://github.com/big21josh/Tadiwanashe-Joshua-Mabharani_dev-personal-portfolio"
+    },
+    {
+      "description": "**Muwoni Task Manager** is a Django-based web application designed to help users organize and manage their daily tasks through a clean, user-friendly interface with calendar integration. The project demonstrates core web development concepts etc",
+      "name": "muwoni-completed-project",
+      "language": "HTML",
+      "updatedAt": "2026-08-18T14:57:17Z",
+      "homepage": "https://muwoni-completed-project.onrender.com/",
+      "url": "https://github.com/big21josh/muwoni-completed-project"
+    },
+    {
+      "description": null,
+      "name": "React-Basics",
+      "language": "TypeScript",
+      "updatedAt": "2026-07-14T09:50:26Z",
+      "homepage": null,
+      "url": "https://github.com/big21josh/React-Basics"
+    },
+    {
+      "description": "The goal of this project is to reinforce the fundamentals of JavaScript objects through hands-on practice. It serves as a reference for beginners and a foundation for more advanced topics such as arrays of objects, classes, APIs, and object-oriented programming.",
+      "name": "Objects-Exercises",
+      "language": "JavaScript",
+      "updatedAt": "2026-07-10T08:02:23Z",
+      "homepage": null,
+      "url": "https://github.com/big21josh/Objects-Exercises"
+    },
+    {
+      "description": "These are suitable for students who have covered JavaScript fundamentals up to arrays and have not yet started functions.",
+      "name": "50-beginner-JavaScript-problems",
+      "language": "JavaScript",
+      "updatedAt": "2026-07-02T13:48:23Z",
+      "homepage": null,
+      "url": "https://github.com/big21josh/50-beginner-JavaScript-problems"
+    },
+    {
+      "description": null,
+      "name": "Functions-",
+      "language": "JavaScript",
+      "updatedAt": "2026-07-02T13:44:03Z",
+      "homepage": null,
+      "url": "https://github.com/big21josh/Functions-"
+    },
+    {
+      "description": null,
+      "name": "muwoni-Tasks",
+      "language": "JavaScript",
+      "updatedAt": "2026-04-30T07:58:22Z",
+      "homepage": null,
+      "url": "https://github.com/big21josh/muwoni-Tasks"
+    },
+    {
+      "description": null,
+      "name": "django-todo-app",
+      "language": "HTML",
+      "updatedAt": "2026-04-28T14:05:59Z",
+      "homepage": null,
+      "url": "https://github.com/big21josh/django-todo-app"
+    },
+    {
+      "description": null,
+      "name": "Muwoni-Tech_project",
+      "language": "Python",
+      "updatedAt": "2026-04-23T09:01:50Z",
+      "homepage": null,
+      "url": "https://github.com/big21josh/Muwoni-Tech_project"
+    }
+  ]
+}

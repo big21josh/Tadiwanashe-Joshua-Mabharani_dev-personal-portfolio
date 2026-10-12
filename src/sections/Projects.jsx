@@ -1,137 +1,181 @@
-import { ArrowUpRight } from "lucide-react";
-import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
+import { useEffect, useState } from 'react';
+import { ArrowRight, Search, CodeXml, Check, Layers } from 'lucide-react';
+import { filterProjects, projects } from '../data/portfolio';
+import { Dialog } from '../components/Dialog';
+import { Button } from '../components/Button';
 
-const projects = [
-   {
-      title: "Muwoni Tasks",
-      description:
-         "Muwoni Tasks - A simple web task app to organize your daily to-dos. My first project deployed online, my first real-world application.",
-      image: "/projects/muwoni.png",
-      tags: ["Django", "Python", "HTML", "Shell"],
-      link: "https://muwoni-completed-project.onrender.com/",
-      github: "https://github.com/big21josh/muwoni-completed-project.git"
-   },
-   {
-      title: "Portfolio Dashboard",
-      description:
-         "A responsive dashboard UI with glassmorphism showing my skills and experience. It's this current portfolio site. Built with React + Tailwind.",
-      image: "/projects/dash.png",
-      tags: ["React", "Tailwind", "JavaScript"],
-      link: "#",
-      github: "https://github.com/big21josh/Tadiwanashe-Joshua-Mabharani_dev-personal-portfolio.git"
-   },
-   {
-      title: "Harare Skate Club",
-      description:
-         "Official website for Harare Skate Club. Landing page with hero, skatepark info, store, and donation links. Built for the community to support the first skatepark in Harare.",
-      image: "/projects/HarareSkateClub.png", 
-      tags: ["React", "Next.js", "Tailwind", "TypeScript"],
-      link: "https://harare-skate-club.vercel.app/",
-      github: "#" 
-   },
-];
+function ProjectDetails({ project, onClose }) {
+  return (
+    <Dialog title={project.category} onClose={onClose}>
+      <img
+        className="case-screenshot"
+        src={project.image}
+        alt={`${project.title} actual interface`}
+      />
+      <h2 className="case-title">{project.title}</h2>
+      <p className="case-intro">{project.subtitle}</p>
+      <div className="tags">
+        {project.tags.map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
+      </div>
+      <div className="case-block">
+        <h3>The challenge</h3>
+        <p>{project.challenge}</p>
+      </div>
+      <div className="case-block">
+        <h3>The approach</h3>
+        <p>{project.approach}</p>
+      </div>
+      <div className="case-block">
+        <h3>Inside the build</h3>
+        <ul>
+          {project.features.map((feature) => (
+            <li key={feature}>
+              <Check size={15} />
+              {feature}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <p className="case-note">{project.note}</p>
+      <div className="button-row">
+        {project.live && (
+          <Button href={project.live} target="_blank" rel="noreferrer">
+            Visit project
+          </Button>
+        )}
+        {project.github && (
+          <Button variant="outline" href={project.github} target="_blank" rel="noreferrer">
+            <CodeXml size={16} /> View source
+          </Button>
+        )}
+      </div>
+    </Dialog>
+  );
+}
+export function Projects() {
+  const [category, setCategory] = useState('All projects');
+  const [query, setQuery] = useState('');
+  const [selected, setSelected] = useState(null);
+  useEffect(() => {
+    const open = (event) => {
+      const project = projects.find((item) => item.id === event.detail);
+      if (project) setSelected(project);
+    };
+    window.addEventListener('portfolio:open-project', open);
+    return () => window.removeEventListener('portfolio:open-project', open);
+  }, []);
+  const visible = filterProjects(category, query);
+  return (
+    <section id="work" className="section work-section" aria-labelledby="work-title">
+      <div className="section-heading">
+        <div>
+          <div className="eyebrow">SELECTED WORK</div>
+          <h2 id="work-title">
+            Built with purpose.
+            <br />
+            <span className="muted">Made to be used.</span>
+          </h2>
+        </div>
+        <p>
+          A few things I’ve brought to life.
+          <br />
+          Real problems, thoughtful solutions.
+        </p>
+      </div>
+      <div className="project-toolbar">
+        <div className="filters" aria-label="Filter projects">
+          {['All projects', 'Full stack', 'Frontend'].map((item) => (
+            <button
+              key={item}
+              className={category === item ? 'active' : ''}
+              aria-pressed={category === item}
+              onClick={() => setCategory(item)}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+        <label className="project-search">
+          <Search size={15} />
+          <input
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Find a project"
+            aria-label="Search projects"
+          />
+        </label>
+      </div>
+      <p className="sr-only" aria-live="polite">
+        {visible.length} {visible.length === 1 ? 'project' : 'projects'} found
+      </p>
+      <div className="project-grid">
+        {visible.map((project) => (
+          <article key={project.id} className={`project-card project-${project.kind}`}>
+            <button
+              className="project-visual"
+              aria-label={`Read ${project.title} case study`}
+              onClick={() => setSelected(project)}
+            >
+              <img
+                src={project.image}
+                alt={`${project.title} website screenshot`}
+                loading="lazy"
+                width="1200"
+                height="700"
+              />
 
-export const Projects = () => {
-   return (
-      <section id="projects" className="py-32 relative overflow-hidden">
-         {/* Bg glows */}
-         <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-         <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-highlight/5 rounded-full blur-3xl" />
-
-         <div className="container mx-auto px-6 relative z-10">
-            {/* Section Header */}
-            <div className="text-center mx-auto max-w-3xl mb-16">
-               <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
-                  Featured Work
-               </span>
-               <h2 className="text-4xl md:text-5xl font-bold font-serif mt-4 mb-6 animate-fade-in text-secondary-foreground" style={{ animationDelay: '100ms' }}>
-                  Projects that
-                  <span className="font-serif italic font-normal text-white"> make an impact.</span>
-               </h2>
-               <p className="text-muted-foreground animate-fade-in" style={{ animationDelay: '200ms' }}>
-                  A selection of my recent work, from complex web applications to innovative tools that solve real-world problems.
-               </p>
+              <span className="project-open">View preview</span>
+            </button>
+            <div className="project-meta">
+              <span>{project.category.toUpperCase()}</span>
+              <span>{project.year}</span>
             </div>
-
-            {/* Project Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-               {projects.map((project, idx) => (
-                  <div
-                     key={idx}
-                     className="group glass rounded-2xl overflow-hidden animate-fade-in hover:glow-border transition-all duration-300"
-                     style={{ animationDelay: `${(idx + 1) * 100}ms` }}
-                  >
-                     {/* Image */}
-                     <div className="relative overflow-hidden aspect-video">
-                        <img
-                           src={project.image}
-                           alt={project.title}
-                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
-                        <div
-                           className="absolute inset-0
-                        bg-gradient-to-t from-card via-card/50
-                        to-transparent opacity-60"
-                        />
-                        {/* Overlay Links */}
-                        <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                           <a
-                              href={project.link}
-                              className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
-                           >
-                              <ArrowUpRight className="w-5 h-5" />
-                           </a>
-                           <a
-                              href={project.github}
-                              className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
-                           >
-                              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" aria-hidden="true">
-                                 <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.838 1.237 1.838 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.467-1.334-5.467-5.94 0-1.312.469-2.383 1.236-3.222-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.02 0 2.047.137 3.003.404 2.293-1.552 3.301-1.23 3.301-1.23.653 1.653.241 2.873.117 3.176.77.839 1.236 1.91 1.236 3.222 0 4.61-2.807 5.633-5.479 5.93.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.596 24 12.297c0-6.627-5.373-12-12-12" />
-                              </svg>
-                           </a>
-                        </div>
-                     </div>
-
-                     {/* Content */}
-                     <div className="p-6 space-y-4">
-                        <div className="flex items-center justify-between">
-                           <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">
-                              {project.title}</h3>
-
-                           <ArrowUpRight
-                              className="w-5 h-5
-                             text-muted-forground group-hover:text-primary
-                             group-hover:translate-x-1
-                             group-hover:-translate-y-1 transition-all"
-                           />
-                        </div>
-                        <p className="text-muted-foreground text-sm">
-                           {project.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                           {project.tags.map((tag, tagidx) => (
-                              <span
-                                 key={tagidx}
-                                 className="px-4 py-1.5 rounded-full bg-surface text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-300 ">
-                                 {tag}
-                              </span>
-                           ))}
-                        </div>
-                     </div>
-                  </div>
-               ))}
+            <button className="project-title" onClick={() => setSelected(project)}>
+              <h3>{project.title}</h3>
+            </button>
+            <p>{project.description}</p>
+            <div className="tags">
+              {project.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
             </div>
-
-            {/* View All CTA */}
-            <div className="text-center mt-12 animate-fade-in animation-delay-500">
-               <AnimatedBorderButton>
-                  <span className="inline-flex items-center gap-2">
-                     View All Projects
-                     <ArrowUpRight className="w-5 h-5" />
-                  </span>
-               </AnimatedBorderButton>
+            <div className="project-links">
+              <button onClick={() => setSelected(project)}>
+                Behind the build <ArrowRight size={14} />
+              </button>
+              {project.live && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Visit ${project.title}`}
+                >
+                  Visit project
+                </a>
+              )}
             </div>
-         </div>
-      </section>
-   );
-};
+          </article>
+        ))}
+      </div>
+      {!visible.length && (
+        <div className="empty-state">
+          <Layers size={28} />
+          <p>No projects match that search.</p>
+          <button
+            className="text-link"
+            onClick={() => {
+              setQuery('');
+              setCategory('All projects');
+            }}
+          >
+            Reset filters <ArrowRight size={15} />
+          </button>
+        </div>
+      )}
+      {selected && <ProjectDetails project={selected} onClose={() => setSelected(null)} />}
+    </section>
+  );
+}
