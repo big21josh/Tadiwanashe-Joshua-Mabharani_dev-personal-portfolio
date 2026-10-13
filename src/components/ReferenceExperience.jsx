@@ -34,8 +34,8 @@ import { Github, Linkedin } from './SocialIcons';
 import { profile, projects } from '../data/portfolio';
 const links = [
   ['#home', 'Home'],
-  ['#about', 'About'],
   ['#project-spiral', 'Works'],
+  ['#about', 'About'],
   ['#services', 'Skills'],
   ['#journey', 'Experience'],
   ['#certificates', 'Certificates'],
