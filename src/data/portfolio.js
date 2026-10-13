@@ -9,6 +9,31 @@ export const profile = {
 // Grounded in the original portfolio and public GitHub READMEs. OAK is unchanged.
 export const projects = [
   {
+    id: 'shalom',
+    title: 'Shalom Chigama Portfolio',
+    subtitle: 'A graphic designer’s work, brought to life.',
+    category: 'Frontend',
+    year: '2026',
+    kind: 'portfolio',
+    image: '/projects/shalom-chigama.png',
+    tags: ['JavaScript', 'HTML', 'CSS', 'WebGL'],
+    description:
+      'A graphic design portfolio for Shalom R. Chigama, presenting brand identities, packaging, print designs, and social graphics through an interactive gallery.',
+    challenge:
+      'Create a distinctive digital home for Shalom’s supplied artwork, with clear project browsing across desktop and mobile.',
+    approach:
+      'Custom JavaScript and WebGL power a curved gallery with drag momentum, while HTML and CSS support the visual catalogue, project details, portrait viewer, and résumé.',
+    features: [
+      'Curved WebGL gallery with smooth scrolling and drag navigation',
+      '18 supplied artworks across four collections',
+      'Project details, full-size portrait viewer, and themed résumé',
+      'Responsive layouts, theme switching, and keyboard navigation',
+    ],
+    note: 'Website developed for Shalom R. Chigama using Shalom’s supplied graphic design artwork. Preview shows the actual project catalogue.',
+    github: null,
+    live: 'https://shalom-chigama.vercel.app/',
+  },
+  {
     id: 'oak',
     title: 'OAK Foundation',
     subtitle: 'Bringing people and purpose together.',

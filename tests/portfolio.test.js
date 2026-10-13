@@ -10,7 +10,7 @@ import {
 } from '../src/data/portfolio.js';
 
 test('project search combines categories with case-insensitive technology and title matches', () => {
-  assert.equal(filterProjects('All projects').length, 7);
+  assert.equal(filterProjects('All projects').length, 8);
   assert.deepEqual(
     filterProjects('Full stack', '  PYTHON  ').map((project) => project.id),
     ['muwoni'],
