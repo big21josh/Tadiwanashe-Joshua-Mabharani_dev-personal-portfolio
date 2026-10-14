@@ -16,6 +16,7 @@ Public GitHub repositories inspected on 12 October 2026. Only the portfolio was 
 | Git, GitHub | Published repositories and version-control history |
 | GitHub Actions | Portfolio `.github/workflows/checks.yml` |
 | Vercel, Render | Published project destinations and Render deployment configuration |
+| Firebase, Cloudinary | Shalom portfolio's updated package manifest, Photo studio documentation and Node.js upload API, inspected 14 October 2026 |
 
 This strip represents identifiable languages, frameworks, databases, build tools and deployment platforms, rather than every transitive dependency. Previous entries for Express, MongoDB, Framer Motion, Bootstrap, Figma and FFmpeg are omitted from this GitHub-verified strip because the inspected source did not establish them. Their absence here is not a claim that Joshua has never used them.
 

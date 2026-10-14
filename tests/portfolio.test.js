@@ -20,6 +20,8 @@ test('project search combines categories with case-insensitive technology and ti
     ['skate'],
   );
   assert.equal(filterProjects('Frontend', 'Django').length, 0);
+  assert.deepEqual(filterProjects('Full stack', 'Firebase').map(project => project.id), ['shalom']);
+  assert.equal(filterProjects('Frontend', 'Shalom').length, 0);
   assert.equal(filterProjects('All projects', 'no-such-project').length, 0);
 });
 test('email draft safely encodes multiline and reserved characters', () => {
