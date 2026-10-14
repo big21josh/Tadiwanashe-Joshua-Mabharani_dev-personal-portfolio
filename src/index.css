@@ -1581,6 +1581,7 @@ h4 {
   width: calc(100% - 32px);
   max-height: calc(100dvh - 48px);
   overflow: auto;
+  overscroll-behavior: contain;
   box-shadow: 0 30px 120px #0007;
 }
 .dialog::backdrop {

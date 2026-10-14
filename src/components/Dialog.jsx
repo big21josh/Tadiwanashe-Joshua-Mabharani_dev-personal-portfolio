@@ -21,6 +21,7 @@ export function Dialog({ title, children, onClose, className = '', initialFocus 
     <dialog
       ref={ref}
       className={`dialog ${className}`}
+      data-lenis-prevent=""
       aria-labelledby={titleId}
       onCancel={(event) => {
         event.preventDefault();
