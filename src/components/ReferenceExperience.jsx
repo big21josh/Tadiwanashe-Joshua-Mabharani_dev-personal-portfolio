@@ -35,7 +35,6 @@ import { profile, projects } from '../data/portfolio';
 const links = [
   ['#home', 'Home'],
   ['#project-spiral', 'Works'],
-  ['#about', 'About'],
   ['#services', 'Skills'],
   ['#journey', 'Experience'],
   ['#certificates', 'Certificates'],
@@ -43,7 +42,7 @@ const links = [
 export function ReferenceNav() {
   const section = useActiveSection();
   const active = {
-    work: 'project-spiral', toolkit: 'services', intro: 'home',
+    work: 'project-spiral', toolkit: 'services', intro: 'home', about: 'journey',
     approach: 'services', faqs: 'contact', footer: 'contact',
   }[section] || section;
   const [open, setOpen] = useState(false);
@@ -96,7 +95,7 @@ export function ReferenceNav() {
         </button>
       </div>
       <nav id="ref-mobile" className="ref-mobile" aria-label="Mobile navigation" hidden={!open}>
-        {[...links, ['#contact', 'Contact']].map(([href, label]) => (
+        {links.map(([href, label]) => (
           <a key={href} href={href} onClick={() => setOpen(false)} aria-current={href === `#${active}` ? 'location' : undefined}>
             {label}
           </a>
