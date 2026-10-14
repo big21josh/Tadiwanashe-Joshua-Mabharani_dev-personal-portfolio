@@ -29,22 +29,13 @@ import { LightField } from './ProjectSpiral';
 import { ThemeToggle } from './ThemeToggle';
 import { Toolkit } from './Toolkit';
 import { useActiveSection } from '../hooks/useActiveSection';
+import { navigationItems } from '../data/navigation';
 import { Button } from './Button';
 import { Github, Linkedin } from './SocialIcons';
 import { profile, projects } from '../data/portfolio';
-const links = [
-  ['#home', 'Home'],
-  ['#project-spiral', 'Works'],
-  ['#services', 'Skills'],
-  ['#journey', 'Experience'],
-  ['#certificates', 'Certificates'],
-];
+const links = navigationItems.map(({ id, label }) => [`#${id}`, label]);
 export function ReferenceNav() {
-  const section = useActiveSection();
-  const active = {
-    work: 'project-spiral', toolkit: 'services', intro: 'home', about: 'journey',
-    approach: 'services', faqs: 'contact', footer: 'contact',
-  }[section] || section;
+  const active = useActiveSection();
   const [open, setOpen] = useState(false);
   const [floating, setFloating] = useState(false);
   useEffect(() => {
@@ -135,7 +126,7 @@ export function ReferenceHero({ reduced }) {
         <p>Thoughtful digital experiences, designed and developed by Joshua.</p>
         <div className="ref-ctas">
           <Button href="#contact">Get in touch</Button>
-          <Button href="#project-spiral" variant="outline">
+          <Button href="#works" variant="outline">
             See my work
           </Button>
         </div>
@@ -319,7 +310,7 @@ const services = [
 ];
 export function ReferenceServices() {
   return (
-    <section id="services" className="section ref-services" aria-labelledby="services-title">
+    <section id="skills" className="section ref-services" aria-labelledby="services-title">
       <div className="section-heading">
         <h2 id="services-title">
           Elevate your
@@ -352,7 +343,7 @@ export function ReferenceServices() {
             From user interfaces to application backends, I bring the same care to every detail:
             clear, responsive, and built for people.
           </p>
-          <a href="#project-spiral">
+          <a href="#works">
             See my work</a>
         </div>
         <div className="ref-platform-stack">
@@ -463,7 +454,7 @@ export function ReferenceFooter({ motion, onCommand }) {
             <em>Build Better.</em>
           </h2>
           <div className="ref-ctas">
-            <Button variant="outline" href="#project-spiral">
+            <Button variant="outline" href="#works">
             See my work
             </Button>
             <Button href="#contact">Get in touch</Button>
@@ -482,12 +473,12 @@ export function ReferenceFooter({ motion, onCommand }) {
             <h3>Portfolio</h3>
             <a href="#home">Home</a>
             <a href="#about">About</a>
-            <a href="#work">Works</a>
+            <a href="#works">Works</a>
           </div>
           <div>
             <h3>Expertise</h3>
-            <a href="#services">Skills</a>
-            <a href="#journey">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
             <a href="#certificates">Certificates</a>
           </div>
           <div>

@@ -92,7 +92,7 @@ export function About() {
           ))}
         </div>
       </section>
-      <section id="journey" className="section journey-section" aria-labelledby="journey-title">
+      <section id="experience" className="section journey-section" aria-labelledby="journey-title">
         <div className="section-heading">
           <div>
             <div className="eyebrow">ALWAYS BUILDING. ALWAYS LEARNING.</div>

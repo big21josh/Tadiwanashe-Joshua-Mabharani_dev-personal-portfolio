@@ -122,7 +122,7 @@ export function ProjectSpiral({ motion }) {
   }, []);
   return (
     <section
-      id="project-spiral"
+      id="works"
       ref={root}
       className={`ref-project-spiral${failed ? ' spiral-fallback' : ''}`}
       aria-labelledby="spiral-title"

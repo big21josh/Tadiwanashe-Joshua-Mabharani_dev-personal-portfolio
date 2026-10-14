@@ -6,6 +6,7 @@ export function ThemeToggle() {
   function toggleTheme() {
     const next = theme === 'dark' ? 'light' : 'dark';
     document.documentElement.dataset.theme = next;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', next === 'light' ? '#ffffff' : '#000000');
     setTheme(next);
     try {
       localStorage.setItem('portfolio-theme', next);

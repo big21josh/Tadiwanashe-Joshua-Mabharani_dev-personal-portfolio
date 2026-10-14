@@ -3,9 +3,10 @@ import { Search, CornerDownLeft } from 'lucide-react';
 import { Dialog } from './Dialog';
 import { profile } from '../data/portfolio';
 const actions = [
-  { label: 'Explore selected work', hint: 'Projects', href: '#project-spiral' },
+  { label: 'Explore selected work', hint: 'Works', href: '#works' },
+  { label: 'Skills & technology stack', hint: 'Skills', href: '#skills' },
   { label: 'Get to know Joshua', hint: 'About', href: '#about' },
-  { label: 'Experience & credentials', hint: 'Journey', href: '#journey' },
+  { label: 'Experience & credentials', hint: 'Experience', href: '#experience' },
   { label: 'All certificates', hint: 'Credentials', href: '#certificates' },
   { label: 'Start a conversation', hint: 'Contact', href: '#contact' },
   { label: 'Download my CV', hint: 'PDF', href: profile.cv, external: true },

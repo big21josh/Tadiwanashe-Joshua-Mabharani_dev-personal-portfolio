@@ -11,6 +11,8 @@ Snapshot: navigation, hero/editor, toolkit, introduction, featured works, servic
 ## 3. Navigation
 Observed: horizontal brand/navigation, theme control, pill contact CTA, compact mobile menu and a floating glass bar on scroll. Implemented: TJM and Joshua brand, portfolio anchors, theme control and contact CTA, with the floating desktop navigation. Works opens the spiral. Mobile menu closes on selection, Escape or desktop resize. Ctrl K retains quick navigation.
 
+14 October alignment: primary navigation is Home, Works, Skills, Experience, Certificates, with matching IDs/hashes `home`, `works`, `skills`, `experience`, `certificates`. The central navigation configuration supplies labels and section metadata. Browser title, description, Open Graph and Twitter title/description follow the active owner; the HTML's initial Home metadata matches those values. Theme-color follows dark/light mode. The single portfolio canonical URL and sitemap remain at the root because fragments are sections of one page. Incoming legacy bookmarks resolve to their renamed section. Desktop/mobile targets, highlighting, titles, metadata and incoming legacy bookmarks passed browser checks; all ten tests, lint and build pass.
+
 ## 4. Typography
 Observed source: Walsheim display, Geist body, Fraunces normal and italic accents. Local supplied font assets are used. Hero clamp 48px–92px with tight -0.06em tracking and line height 1. Section headings 38px–64px. Small screens reduce hero sizing to prevent overflow.
 

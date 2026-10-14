@@ -1,7 +1,19 @@
 import { useEffect, useState } from 'react';
+import { resolveSection, sectionMetadata } from '../data/navigation';
 
 export function useActiveSection() {
   const [active, setActive] = useState('home');
+  useEffect(() => {
+    const meta = sectionMetadata[active];
+    document.title = meta.title;
+    for (const [selector, content] of [
+      ['meta[name="description"]', meta.description],
+      ['meta[property="og:title"]', meta.title],
+      ['meta[property="og:description"]', meta.description],
+      ['meta[name="twitter:title"]', meta.title],
+      ['meta[name="twitter:description"]', meta.description],
+    ]) document.querySelector(selector)?.setAttribute('content', content);
+  }, [active]);
   useEffect(() => {
     const sections = [...document.querySelectorAll('main section[id], main .ref-intro[id], footer[id]')];
     let frame;
@@ -13,15 +25,17 @@ export function useActiveSection() {
         if (section.getBoundingClientRect().top <= marker) current = section.id;
         else break;
       }
-      setActive(current);
-      if (window.location.hash !== `#${current}`) {
-        window.history.replaceState(window.history.state, '', `#${current}`);
+      const owner = resolveSection(current);
+      setActive(owner);
+      if (window.location.hash !== `#${owner}`) {
+        window.history.replaceState(window.history.state, '', `#${owner}`);
       }
     };
     const schedule = () => {
       if (!frame) frame = window.requestAnimationFrame(update);
     };
-    const target = document.getElementById(window.location.hash.slice(1));
+    const hash = window.location.hash.slice(1);
+    const target = document.getElementById(hash) || document.getElementById(resolveSection(hash));
     if (target && sections.includes(target)) target.scrollIntoView({ behavior: 'instant' });
     schedule();
     window.addEventListener('scroll', schedule, { passive: true });
