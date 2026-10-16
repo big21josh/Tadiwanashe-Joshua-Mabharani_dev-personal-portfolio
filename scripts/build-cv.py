@@ -4,7 +4,8 @@ from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.pagesizes import A4
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, KeepTogether
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, KeepTogether, Frame
+from reportlab.pdfgen import canvas
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / 'public' / 'Tadiwanashe_Joshua_Mabharani_CV.pdf'
@@ -111,9 +112,97 @@ def footer(canvas, doc):
     canvas.drawRightString(A4[0] - 44, 25, f'{doc.page}')
     canvas.restoreState()
 
-doc = SimpleDocTemplate(str(OUTPUT), pagesize=A4, rightMargin=44, leftMargin=44,
-                        topMargin=40, bottomMargin=51,
-                        title='Tadiwanashe Joshua Mabharani - Software Developer CV',
-                        author='Tadiwanashe Joshua Mabharani')
-doc.build(story, onFirstPage=footer, onLaterPages=footer)
+# Retain the original CV's large letter-spaced heading and rounded sidebar.
+# Updated content is grouped into the same two-column structure, now in blue.
+sections = {}
+current = None
+for item in story:
+    if isinstance(item, PageBreak):
+        current = None
+    elif isinstance(item, Paragraph) and item.style.name == 'section':
+        current = item.getPlainText()
+        sections[current] = [item]
+    elif current:
+        sections[current].append(item)
+
+W, H = A4
+c = canvas.Canvas(str(OUTPUT), pagesize=A4)
+c.setTitle('Tadiwanashe Joshua Mabharani - Software Developer CV')
+c.setAuthor('Tadiwanashe Joshua Mabharani')
+
+def spaced(text, y, size, spacing):
+    c.saveState()
+    width = c.stringWidth(text, 'Helvetica-Bold', size) + spacing * (len(text) - 1)
+    t = c.beginText((W - width) / 2, y)
+    t.setFont('Helvetica-Bold', size)
+    t.setCharSpace(spacing)
+    t.setFillColor(colors.HexColor('#454b50'))
+    t.textLine(text)
+    c.drawText(t)
+    c.restoreState()
+
+def frame_content(items, x, width, sidebar=False):
+    def restyle(item):
+        if isinstance(item, Paragraph):
+            style = ParagraphStyle('column', parent=item.style)
+            style.textColor = colors.HexColor('#525c65')
+            style.fontSize = min(style.fontSize, 9 if sidebar else 9.5)
+            style.leading = style.fontSize * 1.4
+            style.spaceAfter = min(style.spaceAfter, 5)
+            if item.style.name == 'section':
+                style.fontSize = 10
+                style.leading = 14
+                style.spaceBefore = 12
+                style.spaceAfter = 10
+                style.textColor = colors.HexColor('#454b50')
+            return Paragraph(item.text, style)
+        if isinstance(item, KeepTogether):
+            return KeepTogether([restyle(child) for child in item._content])
+        return item
+    content = []
+    for item in items:
+        if isinstance(item, KeepTogether):
+            content.extend(restyle(child) for child in item._content)
+        else:
+            content.append(restyle(item))
+    frame = Frame(x, 40, width, H - 203, leftPadding=0, rightPadding=0,
+                  topPadding=0, bottomPadding=0)
+    frame.addFromList(content, c)
+    assert not content, f'CV column overflow: {x}, {len(content)} items'
+
+for page in [1, 2]:
+    spaced('TADIWANASHE', H - 56, 29, 5.4)
+    spaced('JOSHUA MABHARANI', H - 99, 29, 4.5)
+    spaced('SOFTWARE DEVELOPER', H - 127, 14, 3.8)
+    c.setFillColor(colors.HexColor('#e8f0f8'))
+    c.roundRect(26, 27, 216, H - 173, 13, fill=1, stroke=0)
+    if page == 1:
+        sidebar = [p('CONTACT', 'section'),
+                   p(link('Big21josh@gmail.com', 'mailto:Big21josh@gmail.com')),
+                   p('Harare, Zimbabwe'),
+                   p(link('Portfolio', 'https://tadiwanashejoshuamabharani.onrender.com/')),
+                   p(link('GitHub / big21josh', 'https://github.com/big21josh')),
+                   p(link('LinkedIn', 'https://www.linkedin.com/in/tadiwanashe-joshua-mabharani-001084346/'))]
+        sidebar += [p('EDUCATION', 'section'),
+                    p('<b>SOFTWARE ENGINEERING</b><br/>Uncommon.org<br/>Jan 2026 - Present'),
+                    Spacer(1, 8),
+                    p('<b>SECONDARY SCHOOL</b><br/>Rujeko High School<br/>2016 - 2019'),
+                    p('TECHNICAL SKILLS', 'section')]
+        for line in ['JavaScript, TypeScript, Python', 'HTML, CSS, responsive design',
+                     'React, Next.js, Tailwind CSS', 'Node.js, Django, Bootstrap',
+                     'SQLite, PostgreSQL, Supabase', 'Firebase, Firestore, Cloudinary',
+                     'Git, GitHub, npm, Vite', 'ESLint, Prettier, Vercel, Render',
+                     'Three.js/WebGL, GSAP, Lenis', 'UI/UX and troubleshooting']:
+            sidebar.append(p(line))
+        main = sections['PROFILE'] + sections['PROFESSIONAL EXPERIENCE']
+    else:
+        sidebar = sections['SELECTED CERTIFICATIONS']
+        main = sections['SELECTED PROJECTS']
+    frame_content(sidebar, 49, 169, sidebar=True)
+    frame_content(main, 257, 308)
+    c.setFillColor(colors.HexColor('#525c65'))
+    c.setFont('Helvetica', 8)
+    c.drawRightString(W - 29, 16, f'{page} / 2')
+    c.showPage()
+c.save()
 print(OUTPUT)
