@@ -32,7 +32,7 @@ export const projects = [
     ],
     note: 'Adapted for Keith Mutsawanaki Kapfunde from a supplied design reference, using Keith’s projects and content. Preview shows the actual portfolio interface.',
     github: null,
-    live: null,
+    live: 'https://keith-mutsawanaki-kapfunde.onrender.com/',
   },
   {
     id: 'shalom',
