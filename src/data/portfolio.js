@@ -9,6 +9,32 @@ export const profile = {
 // Grounded in the original portfolio and public GitHub READMEs. OAK is unchanged.
 export const projects = [
   {
+    id: 'keith',
+    title: 'Keith Kapfunde Portfolio',
+    subtitle: 'A developer’s work, connected through an interactive world.',
+    category: 'Frontend',
+    year: '2026',
+    kind: 'portfolio',
+    image: '/projects/keith-kapfunde.jpg',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'WebGL', 'Vite'],
+    description:
+      'An interactive developer portfolio with a custom WebGL globe, project showcase, certifications, and a scroll-driven development method.',
+    challenge:
+      'Present Keith’s projects, skills, and learning journey in a distinctive portfolio while keeping navigation, contact details, and project information accessible.',
+    approach:
+      'React and TypeScript structure the portfolio, with React Router for dedicated pages and a custom WebGL globe rendered from geographic data. Scroll-driven transitions introduce the development method and project showcase.',
+    features: [
+      'Animated WebGL globe with geographic connection arcs',
+      'Project gallery with detailed previews and search',
+      'Dedicated About, Projects, and Certifications pages',
+      'Five-stage method section and scrolling technology toolkit',
+      'Responsive navigation, CV download, and contact links',
+    ],
+    note: 'Adapted for Keith Mutsawanaki Kapfunde from a supplied design reference, using Keith’s projects and content. Preview shows the actual portfolio interface.',
+    github: null,
+    live: null,
+  },
+  {
     id: 'shalom',
     title: 'Shalom Chigama Portfolio',
     subtitle: 'A graphic designer’s work, brought to life.',
